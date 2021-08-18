@@ -9,6 +9,12 @@ const router = express.Router()
       console.log(req.params);
     res.send('Birds home page')
   })
+
+  router.get('/:id',(req, res)=> {
+    console.log(req.query);
+  res.send('welcome to the future')
+})
+
   router.post('/names', (req, res) => {
     if(req.body.password==='12344')
     {
