@@ -4,7 +4,8 @@ const connection = require('./connection');
 const router = express.Router()
 
 router.get('/name', (req, res) => {
-  res.send('Hello World!')
+  res.send('Hello World!');
+  console.log(req.body);
 })
 
 router.get('/:id/[A-Z]{4}', (req, res) => {
