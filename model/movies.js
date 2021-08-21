@@ -1,10 +1,10 @@
 const arr=[
 {
-    name:'hfg',
+    name:'movie1',
     id:'1'
 },
 {
-name:"kjfh",
+name:"movie2",
 id:'2'
 }
 

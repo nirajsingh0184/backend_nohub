@@ -14,7 +14,7 @@ const arr = {
 
         let movie = {};
         movies.forEach(element => {
-            if (id === element.id) {
+            if (name === element.name) {
                 movie=element;
             }
         })
