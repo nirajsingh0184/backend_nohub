@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 //app.use(middleware)
-app.use('/',router);
+app.use('/todo',router);
 // app.use('/static/',express.static('public'));
 // app.use('/g1.png',express.static('public/g1.png'));
 

@@ -36,7 +36,6 @@ const arr = {
 
             if(id==tasks.id)
             {
-
                 element.push(tasks);
             }
         })
@@ -66,17 +65,46 @@ fun4:(req,res)=>
    {
        task.splice(index, 1);
    }
-   
-   
    res.send(task);
 },
 
 fun5:(req,res)=>
 {
+    const { id } = req.params;
+    const { body }=req;
     
+    var index = task.findIndex((o)=>
+    {
+        if(o.id === id){
+            return o;
+        }
+   })
+  let obj=task[index];
+   if (index !== -1) 
+   {
+    Object.assign(obj,{...body})
+   }
+   res.send(task);
+},
 
-}
+fun6:(req, res) => {
+    connection.query('SELECT * FROM users', (err, rows, fields) => {
+      if (err)
+        throw err;
+      else
+        res.send(rows);
+    })
 
+    new Promise(function(resolve, reject) {
+        // do a thing, possibly async, then…
+      
+        if (a==7) {
+          resolve("Stuff worked!");
+        }
+        else {
+          reject(Error("It broke"));
+        }
+      });
 
 }
 
