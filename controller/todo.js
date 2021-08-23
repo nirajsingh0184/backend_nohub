@@ -25,11 +25,11 @@ const router = express.Router()
 
 
 const arr = {
-    fun1: (req, res) => {
+    getAllTask: (req, res) => {
         res.send(task);
     },
 
-    fun2: (req, res) => {
+    getTask: (req, res) => {
         const { id } = req.params;
         let element=[];
         task.forEach(tasks => {
@@ -42,19 +42,19 @@ const arr = {
         res.send(element);
     },
 
-    fun3: (req, res) => {
+    createTask: (req, res) => {
 
         const {body}=req;
         task.push(body);
         res.send(
             {
                 status:200,
-                message:"Kam ho gaya"
+                message:"success"
             }
         )
     },
 
-fun4:(req,res)=>
+deleteTask:(req,res)=>
 {
     const { id } = req.params;
     var index = task.findIndex((o)=>
@@ -68,7 +68,7 @@ fun4:(req,res)=>
    res.send(task);
 },
 
-fun5:(req,res)=>
+updateTask:(req,res)=>
 {
     const { id } = req.params;
     const { body }=req;
@@ -87,24 +87,26 @@ fun5:(req,res)=>
    res.send(task);
 },
 
-fun6:(req, res) => {
-    connection.query('SELECT * FROM users', (err, rows, fields) => {
-      if (err)
-        throw err;
-      else
-        res.send(rows);
-    })
+// fun6:return new Promise(resolve,reject) => {
+//     // //connection.query('SELECT * FROM users', (err, rows, fields) => {
+//     //   if (err)
+//     //     throw err;
+//     //   else
+//     //     res.send(rows);
 
-    new Promise(function(resolve, reject) {
-        // do a thing, possibly async, then…
+
+//     })
+
+    // new Promise(function(resolve, reject) {
+    //     // do a thing, possibly async, then…
       
-        if (a==7) {
-          resolve("Stuff worked!");
-        }
-        else {
-          reject(Error("It broke"));
-        }
-      });
+    //     if (a==7) {
+    //       resolve("Stuff worked!");
+    //     }
+    //     else {
+    //       reject(Error("It broke"));
+    //     }
+    //   });
 
 }
 

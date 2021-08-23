@@ -19,47 +19,47 @@ const router = express.Router()
 // })
 
 
-router.get('/', (req, res) => {
-  connection.query('SELECT * FROM users', (err, rows, fields) => {
-    if (err)
-      throw err;
-    else
-      res.send(rows);
-  })
-});
+// router.get('/', (req, res) => {
+//   connection.query('SELECT * FROM users', (err, rows, fields) => {
+//     if (err)
+//       throw err;
+//     else
+//       res.send(rows);
+//   })
+// });
 
 
 
-router.post('/', (req, res) => {
-  connection.query("INSERT INTO customers (name, address) VALUES ('Company Inc', 'Valley 345')", (err, rows, fields) => {
-    if (err)
-      throw err;
-    else
-      res.end("done");
-    console.log("data inserted");
-  })
-});
+// router.post('/', (req, res) => {
+//   connection.query("INSERT INTO customers (name, address) VALUES ('Company Inc', 'Valley 345')", (err, rows, fields) => {
+//     if (err)
+//       throw err;
+//     else
+//       res.end("done");
+//     console.log("data inserted");
+//   })
+// });
 
 
-router.delete('/', (req, res) => {
-  connection.query("DELETE FROM customers WHERE address = 'Highway 37'", (err, rows, fields) => {
-    if (err)
-      throw err;
-    else
-      res.end("done");
-    console.log("data deleted");
-  })
-});
+// router.delete('/', (req, res) => {
+//   connection.query("DELETE FROM customers WHERE address = 'Highway 37'", (err, rows, fields) => {
+//     if (err)
+//       throw err;
+//     else
+//       res.end("done");
+//     console.log("data deleted");
+//   })
+// });
 
-router.put('/', (req, res) => {
-  connection.query("UPDATE customers SET address = 'Canyon 123' WHERE address = 'Valley 345'", (err, rows, fields) => {
-    if (err)
-      throw err;
-    else
-      res.end("done");
-    console.log("data updated");
-  })
-});
+// router.put('/', (req, res) => {
+//   connection.query("UPDATE customers SET address = 'Canyon 123' WHERE address = 'Valley 345'", (err, rows, fields) => {
+//     if (err)
+//       throw err;
+//     else
+//       res.end("done");
+//     console.log("data updated");
+//   })
+// });
 
 
 
@@ -79,10 +79,10 @@ router.put('/', (req, res) => {
 //   }
 // })
 
-// router.post('/',arr.fun3)
-// router.get('/',arr.fun1)
-// router.get('/:id',arr.fun2)
-// router.delete('/:id',arr.fun4)
-// router.put('/:id',arr.fun5)
+router.post('/',arr.createTask)
+router.get('/',arr.getAllTask)
+router.get('/:id',arr.getTask)
+router.delete('/:id',arr.deleteTask)
+router.put('/:id',arr.updateTask)
 
 module.exports = router
