@@ -1,6 +1,6 @@
 const express = require('express')
 //const connection = require('./connection');
-const func=require('./controller/Movies')
+const arr=require('./controller/todo')
 const router = express.Router()
 
 // router.get('/name', (req, res) => {
@@ -88,6 +88,10 @@ const router = express.Router()
 //   }
 // })
 
-router.get('/:id', func.func)
+router.post('/',arr.fun3)
+router.get('/',arr.fun1)
+router.get('/:id',arr.fun2)
+router.delete('/:id',arr.fun4)
+
 
 module.exports = router

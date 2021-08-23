@@ -1,5 +1,5 @@
 
-var mysql = require('mysql2');
+const mysql = require('../todo.js/mysql2');
 let connection = mysql.createConnection({
     host: 'localhost',
     user: 'rootuser',

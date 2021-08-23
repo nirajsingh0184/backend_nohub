@@ -3,10 +3,10 @@ const app=express();
 const router=require("./routes")
 //const middleware=require("./middleware")
 
-//const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 //var mysql = require('mysql2');
 
-//app.use(bodyParser.text());
+app.use(bodyParser.json());
 //app.use(middleware)
 app.use('/',router);
 // app.use('/static/',express.static('public'));
