@@ -45,6 +45,20 @@ const arr = {
     createTask: (req, res) => {
 
         const {body}=req;
+        for(let i=0;i<task.length;i++)
+        {
+            if(task[i].id1==body.id)
+            {
+               return res.send(
+                {
+                    status:401,
+                    message:"task Already exist"
+                }
+               );
+            }
+        }
+
+
         task.push(body);
         res.send(
             {
@@ -57,14 +71,15 @@ const arr = {
 deleteTask:(req,res)=>
 {
     const { id } = req.params;
-    var index = task.findIndex((o)=>
+    for(let i=0;i<task.length;i++)
     {
-        return o.id === id;
-   })
-   if (index !== -1) 
-   {
-       task.splice(index, 1);
-   }
+        if(task[i].id==id)
+        {
+            task.splice(i,1);
+        }
+    }
+   console.log(task);
+   
    res.send(task);
 },
 
@@ -72,20 +87,18 @@ updateTask:(req,res)=>
 {
     const { id } = req.params;
     const { body }=req;
+    const {id1,...rest}=body;
+    console.log(rest);
     
-    var index = task.findIndex((o)=>
+    for(let i=0;i<task.length;i++)
     {
-        if(o.id === id){
-            return o;
+        if(task[i].id1==id)
+        {
+            task[i]={...task[i],...rest};
         }
-   })
-  let obj=task[index];
-   if (index !== -1) 
-   {
-    Object.assign(obj,{...body})
-   }
-   res.send(task);
-},
+    }
+  res.send(task);
+}
 
 // fun6:return new Promise(resolve,reject) => {
 //     // //connection.query('SELECT * FROM users', (err, rows, fields) => {
