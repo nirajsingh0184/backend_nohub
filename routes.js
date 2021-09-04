@@ -80,6 +80,7 @@ const router = express.Router()
 // })
 
 router.post('/',arr.create)
+router.post('/login',arr.login)
 // router.get('/',arr.getAllTask)
 // router.get('/:id',arr.getTask)
 // router.delete('/:id',arr.deleteTask)

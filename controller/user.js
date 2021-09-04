@@ -4,7 +4,7 @@ const userController = {
     create: async (req, res) => {
         try {
 
-            const { firstname, email, password,age,dob } = req.body;
+            const { firstname,email,password,age,dob } = req.body;
             let existingUser = await User.findOne({ email });
             console.log(existingUser);
             if (existingUser) {
@@ -47,9 +47,43 @@ const userController = {
                 status: false
             })
         }
+    },
+
+
+    login: async (req, res) => {
+        try {
+
+            const {email,password} = req.body;
+            let existingUser = await User.findOne({ email,password });
+            console.log(existingUser);
+            if (existingUser) {
+               return res.status(200).send({
+
+                    message: "Login successful",
+                    status: true
+                })
+            }
+            return res.status(400).send({
+
+                message: "wrong email,password",
+                status:false
+            })
+            
+
+            //     const user=new User({
+            // firstname:"niraj",
+            // email:'niraj@gmail.com',
+            // password:'12345'
+
+            //     })
+        } catch (err) {
+            console.log("error", err);
+            res.status(400).send({
+                message: "user not created",
+                status: false
+            })
+        }
     }
-
-
 
 
     }
