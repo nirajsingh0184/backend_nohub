@@ -1,6 +1,6 @@
 const express = require('express')
 //const connection = require('./connection');
-const arr=require('./controller/todo')
+const arr=require('./controller/user')
 const router = express.Router()
 
 // router.get('/name', (req, res) => {
@@ -79,10 +79,10 @@ const router = express.Router()
 //   }
 // })
 
-router.post('/',arr.createTask)
-router.get('/',arr.getAllTask)
-router.get('/:id',arr.getTask)
-router.delete('/:id',arr.deleteTask)
-router.put('/:id',arr.updateTask)
+router.post('/',arr.create)
+// router.get('/',arr.getAllTask)
+// router.get('/:id',arr.getTask)
+// router.delete('/:id',arr.deleteTask)
+// router.put('/:id',arr.updateTask)
 
 module.exports = router
